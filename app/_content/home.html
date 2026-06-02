@@ -1068,6 +1068,22 @@
   .tl-cert:hover{ border-color: var(--term-dim); color: var(--term); }
   .tl-cert img{ width: 24px; height: auto; }
 
+  .whoami-matrix-head{
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--ink);
+    margin: 56px 0 20px;
+    letter-spacing: -0.01em;
+  }
+  .whoami-matrix-head span{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    color: var(--ink-3);
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+
   @media(max-width:980px){
     .whoami-grid{ grid-template-columns: 1fr; gap: 48px; }
   }
@@ -2585,9 +2601,8 @@
       <a href="#whoami"><span class="num">00</span>whoami</a>
       <a href="#stats"><span class="num">01</span>landscape</a>
       <a href="#method"><span class="num">02</span>methodology</a>
-      <a href="#skills"><span class="num">03</span>skills</a>
-      <a href="#ai-threat"><span class="num">04</span>future</a>
-      <a href="#assessment"><span class="num">05</span>assessment</a>
+      <a href="#ai-threat"><span class="num">03</span>future</a>
+      <a href="#assessment"><span class="num">04</span>assessment</a>
     </nav>
   </div>
 </header>
@@ -2707,6 +2722,59 @@
       </div>
 
     </div>
+
+    <div class="whoami-matrix-head">Capability matrix <span>— self-assessed out of 10</span></div>
+    <div class="skills">
+      <div class="skill">
+        <div class="cat">Web Exploitation</div>
+        <div class="skill-techs">SQLi · SSRF · LFI/RFI · XSS · CSRF · File Upload Attacks · IDOR · XXE</div>
+        <div class="skill-bar-wrap">
+          <span class="skill-meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span>
+          <span class="skill-score">8/10</span>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="cat">Linux PrivEsc</div>
+        <div class="skill-techs">SUID/SGID abuse · GTFOBins · Cron hijack · PATH manipulation · Kernel exploits · Container escapes</div>
+        <div class="skill-bar-wrap">
+          <span class="skill-meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span>
+          <span class="skill-score">8/10</span>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="cat">Windows PrivEsc</div>
+        <div class="skill-techs">Token impersonation · SeImpersonatePrivilege · AlwaysInstallElevated · Unquoted service paths · DLL hijacking</div>
+        <div class="skill-bar-wrap">
+          <span class="skill-meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
+          <span class="skill-score">9/10</span>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="cat">AD Enumeration</div>
+        <div class="skill-techs">BloodHound · Kerberoasting · AS-REP roasting · ACL abuse · DCSync · NTLM relay · Constrained delegation</div>
+        <div class="skill-bar-wrap">
+          <span class="skill-meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
+          <span class="skill-score">9/10</span>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="cat">Pivoting</div>
+        <div class="skill-techs">chisel · ligolo-ng · SSH dynamic forwarding · SOCKS5/proxychains · Responder · double pivoting</div>
+        <div class="skill-bar-wrap">
+          <span class="skill-meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
+          <span class="skill-score">9/10</span>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="cat">Tools</div>
+        <div class="skill-techs">ffuf · nxc · Burp Suite · Hashcat · Impacket · Hydra · Nmap · John · Mimikatz · Metasploit · msfvenom</div>
+        <div class="skill-bar-wrap">
+          <span class="skill-meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
+          <span class="skill-score">9/10</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -3204,74 +3272,14 @@
 <!-- ============================================================
      SKILLS
      ============================================================ -->
-<section class="section" id="skills">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="ix">/ 03</span>
-      <h2>Capability matrix — tools, techniques, and where I rate myself.</h2>
-      <p class="desc">Self-assessed out of 10.</p>
-    </div>
-
-    <div class="skills">
-      <div class="skill">
-        <div class="cat">Web Exploitation</div>
-        <div class="skill-techs">SQLi · SSRF · LFI/RFI · XSS · CSRF · File Upload Attacks · IDOR · XXE</div>
-        <div class="skill-bar-wrap">
-          <span class="skill-meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span>
-          <span class="skill-score">8/10</span>
-        </div>
-      </div>
-      <div class="skill">
-        <div class="cat">Linux PrivEsc</div>
-        <div class="skill-techs">SUID/SGID abuse · GTFOBins · Cron hijack · PATH manipulation · Kernel exploits · Container escapes</div>
-        <div class="skill-bar-wrap">
-          <span class="skill-meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span>
-          <span class="skill-score">8/10</span>
-        </div>
-      </div>
-      <div class="skill">
-        <div class="cat">Windows PrivEsc</div>
-        <div class="skill-techs">Token impersonation · SeImpersonatePrivilege · AlwaysInstallElevated · Unquoted service paths · DLL hijacking</div>
-        <div class="skill-bar-wrap">
-          <span class="skill-meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
-          <span class="skill-score">9/10</span>
-        </div>
-      </div>
-      <div class="skill">
-        <div class="cat">AD Enumeration</div>
-        <div class="skill-techs">BloodHound · Kerberoasting · AS-REP roasting · ACL abuse · DCSync · NTLM relay · Constrained delegation</div>
-        <div class="skill-bar-wrap">
-          <span class="skill-meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
-          <span class="skill-score">9/10</span>
-        </div>
-      </div>
-      <div class="skill">
-        <div class="cat">Pivoting</div>
-        <div class="skill-techs">chisel · ligolo-ng · SSH dynamic forwarding · SOCKS5/proxychains · Responder · double pivoting</div>
-        <div class="skill-bar-wrap">
-          <span class="skill-meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
-          <span class="skill-score">9/10</span>
-        </div>
-      </div>
-      <div class="skill">
-        <div class="cat">Tools</div>
-        <div class="skill-techs">ffuf · nxc · Burp Suite · Hashcat · Impacket · Hydra · Nmap · John · Mimikatz · Metasploit · msfvenom</div>
-        <div class="skill-bar-wrap">
-          <span class="skill-meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
-          <span class="skill-score">9/10</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ============================================================
-     AI THREAT — / 04
+     AI THREAT — / 03
      ============================================================ -->
 <section class="section ai-threat-section" id="ai-threat">
   <div class="wrap">
     <div class="sec-head">
-      <span class="ix">/ 04</span>
+      <span class="ix">/ 03</span>
       <h2>AI — The future is now.</h2>
       <p class="desc">AI isn't just a productivity tool — it's an offensive multiplier. These aren't hypotheticals.</p>
     </div>
@@ -3635,12 +3643,12 @@
 </section>
 
 <!-- ============================================================
-     FREE ASSESSMENT — / 05
+     FREE ASSESSMENT — / 04
      ============================================================ -->
 <section class="section" id="assessment">
   <div class="wrap">
     <div class="sec-head">
-      <span class="ix">/ 05</span>
+      <span class="ix">/ 04</span>
       <h2>Free surface assessment — know what's exposed.</h2>
       <p class="desc">No engagement required. Drop your domain and I'll return a preview of your attack surface in 48 hours.</p>
     </div>

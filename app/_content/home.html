@@ -275,6 +275,33 @@
     max-width: 38ch;
   }
 
+  /* ------- stats banner ------- */
+  .stats-banner{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+    padding: 13px 18px;
+    border: 1px solid oklch(0.45 0.10 70);
+    border-left: 3px solid var(--amber);
+    border-radius: 4px;
+    background: rgba(220,170,80,0.05);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12.5px;
+    color: var(--ink-2);
+    line-height: 1.5;
+    flex-wrap: wrap;
+  }
+  .stats-banner strong{ color: var(--amber); font-weight: 600; }
+  .stats-banner-icon{ color: var(--amber); font-size: 14px; flex-shrink: 0; }
+  .stats-banner-src{
+    margin-left: auto;
+    font-size: 10px;
+    color: var(--ink-3);
+    white-space: nowrap;
+    letter-spacing: 0.04em;
+  }
+
   /* ------- stats grid ------- */
   .stats{
     display: grid;
@@ -2713,7 +2740,7 @@
   <div class="wrap">
     <div class="sec-head">
       <span class="ix">/ 00</span>
-      <h2>whoami</h2>
+      <h2>whoami — Starting from the past, to build a solid foundation for the future</h2>
       <p class="desc">8 years across quality engineering and offensive security — from finding bugs in code to finding holes in networks.</p>
     </div>
 
@@ -2722,9 +2749,6 @@
       <!-- Bio -->
       <div class="whoami-bio">
         <div class="eyebrow" style="margin-bottom:20px;">Mattia Cornaglia · RJVNT</div>
-        <p style="color:var(--ink-2); font-size:16px; line-height:1.7; margin:0 0 20px;">
-          I've grown up in the 90s, playing videogames and discovering my passion towards technology. Videogames were at first only a source of fun, but with time they forged my inexhaustible mindset to always find a way through obstacles. That started with them, but significantly conditioned my whole experience with technology and software, leading me to become a software tester and then a penetration tester.
-        </p>
         <p style="color:var(--ink-2); font-size:16px; line-height:1.7; margin:0 0 20px;">
           I started my career in software quality, spending two years testing applications and two more building automation frameworks. In 2022 I made the full pivot into offensive security, the natural endpoint of a career spent breaking things constructively.
         </p>
@@ -2874,6 +2898,13 @@
       <span class="ix">/ 01</span>
       <h2>The threat landscape is in constant evolution. <b>Ignoring</b> it has a price tag.</h2>
       <p class="desc">A few numbers from public reporting that frame why offensive security work matters before the auditors show up.</p>
+    </div>
+
+    <!-- INFO BANNER -->
+    <div class="stats-banner">
+      <span class="stats-banner-icon">⚠</span>
+      <span>Did you know that <strong>60%</strong> of small-medium businesses close within 6 months after a cyberattack?</span>
+      <span class="stats-banner-src">widely cited industry figure</span>
     </div>
 
     <!-- ERA TOGGLE -->
@@ -3264,7 +3295,7 @@
   <div class="wrap">
     <div class="sec-head">
       <span class="ix">/ 02</span>
-      <h2>Methodology — following structured patterns to maximize the .</h2>
+      <h2>Methodology — following structured patterns to maximize the coverage surface.</h2>
       <p class="desc">Engagements follow the PTES phase model. Every step generates artifacts: pcaps, screenshots, command logs, CVE references.</p>
     </div>
 

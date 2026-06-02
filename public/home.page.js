@@ -35,8 +35,19 @@
     { sel: '#whoami .whoami-bio .eyebrow',      to: '~kr3w · PWNED' },
     { sel: '#whoami .whoami-bio p:first-of-type', to: 'started career in target enumeration. spent four years mapping attack surfaces. in 2022 we finished the job.' },
     { sel: '#whoami .whoami-bio p:last-of-type',  to: 'currently operating as a compromised asset. credentials leaked. sessions active. no OSCP required.' },
-    // terminal card
-    { sel: '#whoami .terminal',                 html: `<div class="term-head"><div class="lights"><i></i><i></i><i></i></div><span>kr3w@rjvnt-owned:~</span></div><div class="term-body"><div><span class="p">$ </span>whoami</div><div class="out">&nbsp;</div><div style="color:oklch(0.72 0.24 25)">r00t</div><div class="out">&nbsp;</div><div><span class="p">$ </span>cat /etc/shadow | head -1</div><div style="color:oklch(0.72 0.24 25)">root:$6$kr3w$xX.compromised.xX:19800:0:99999:7:::</div><div class="out">&nbsp;</div><div><span class="p">$ </span>echo $STATUS</div><div style="color:oklch(0.72 0.24 25)">all your base are belong to us.</div></div>` },
+    // terminal card — targeted per-element so restore works
+    { sel: '#termHost',   to: 'kr3w@rjvnt-owned:~' },
+    { sel: '#termCmd1',   to: 'id' },
+    { sel: '#termName',   to: 'r00t' },
+    { sel: '#termHandle', to: '// COMPROMISED' },
+    { sel: '#termCmd2',   to: 'cat /etc/shadow | head -1' },
+    { sel: '#termJob1',   to: 'root:$6$kr3w$xX.compromised.xX:19800:0:99999' },
+    { sel: '#termJob2',   to: 'rjvnt:$6$pwnd$yY.owned.yY:19800:0:99999' },
+    { sel: '#termJob3',   to: '' },
+    { sel: '#termCmd3',   to: 'echo $LOOT' },
+    { sel: '#termCerts',  to: 'credentials.txt  shadow.bak  golden.ticket' },
+    { sel: '#termCmd4',   to: 'echo $STATUS' },
+    { sel: '#termStatus', to: 'all your base are belong to us.' },
     // timeline roles + descs
     { sel: '.tl-item:nth-child(1) .tl-role',   to: 'Enumerated' },
     { sel: '.tl-item:nth-child(2) .tl-role',   to: 'Exploited' },

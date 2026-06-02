@@ -1211,6 +1211,135 @@
     .whoami-grid{ grid-template-columns: 1fr; gap: 48px; }
   }
 
+  /* ------- contact ------- */
+  .contact-grid{
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .contact-channels{ display: flex; flex-direction: column; gap: 12px; }
+  .contact-card{
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 18px 20px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--surface);
+    text-decoration: none;
+    color: inherit;
+    transition: border-color .15s, background .15s, transform .15s;
+  }
+  .contact-card:hover{
+    border-color: var(--term-dim);
+    background: var(--surface-2);
+    transform: translateX(4px);
+  }
+  .contact-card:hover .contact-card-arrow{ opacity: 1; transform: translateX(2px); }
+  .contact-card-icon{
+    width: 40px; height: 40px; flex-shrink: 0;
+    border: 1px solid var(--line-2);
+    border-radius: 6px;
+    background: var(--bg-2);
+    display: grid; place-items: center;
+    color: var(--term);
+  }
+  .contact-card-body{ flex: 1; min-width: 0; }
+  .contact-card-label{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-3);
+    margin-bottom: 3px;
+  }
+  .contact-card-value{
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+  .contact-card-note{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10.5px;
+    color: var(--ink-3);
+    margin-top: 2px;
+  }
+  .contact-card-arrow{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 14px;
+    color: var(--term);
+    opacity: 0.4;
+    transition: opacity .15s, transform .15s;
+    flex-shrink: 0;
+  }
+
+  /* right panel */
+  .contact-terminal{
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--surface);
+    overflow: hidden;
+    position: sticky;
+    top: 90px;
+  }
+  .contact-terminal-head{
+    display: flex; align-items: center; gap: 8px;
+    padding: 10px 16px;
+    background: var(--bg-2);
+    border-bottom: 1px solid var(--line);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--term);
+  }
+  .contact-terminal-dot{
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--term);
+    box-shadow: 0 0 8px var(--term);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  .contact-avail{
+    list-style: none;
+    padding: 16px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .contact-avail li{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12.5px;
+    color: var(--ink-2);
+  }
+  .contact-avail-check{
+    color: var(--term);
+    flex-shrink: 0;
+    font-weight: 700;
+  }
+  .contact-note{
+    margin: 0 16px 16px;
+    padding: 10px 14px;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: var(--bg-2);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10.5px;
+    color: var(--ink-3);
+    line-height: 1.6;
+  }
+
+  @media(max-width:980px){
+    .contact-grid{ grid-template-columns: 1fr; gap: 36px; }
+    .contact-terminal{ position: static; }
+  }
+
   /* ------- footer ------- */
   footer.foot{
     padding: 56px 0 48px;
@@ -2731,6 +2860,7 @@
       <a href="#method"><span class="num">02</span>methodology</a>
       <a href="#ai-threat"><span class="num">03</span>future</a>
       <a href="#assessment"><span class="num">04</span>assessment</a>
+      <a href="#contact"><span class="num">05</span>contact</a>
     </nav>
   </div>
 </header>
@@ -2782,7 +2912,7 @@
 
       <!-- Bio -->
       <div class="whoami-bio">
-        <div class="eyebrow" style="margin-bottom:20px;">Mattia Cornaglia · RJVNT</div>
+        <!-- <div class="eyebrow" style="margin-bottom:20px;">Mattia Cornaglia · RJVNT</div> -->
         <p style="color:var(--ink-2); font-size:16px; line-height:1.7; margin:0 0 20px;">
           I started my career in software quality, spending two years testing applications and two more building automation frameworks. In 2022 I made the full pivot into offensive security, the natural endpoint of a career spent breaking things constructively.
         </p>
@@ -3795,6 +3925,78 @@
             </a>
           </div>
 
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT
+     ============================================================ -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="ix">/ 05</span>
+      <h2>Get in touch.</h2>
+      <p class="desc">Freelance engagements, questions, or just want to talk security — reach out.</p>
+    </div>
+
+    <div class="contact-grid">
+
+      <div class="contact-channels">
+        <a class="contact-card" id="contactEmail" href="mailto:rjvnt@protonmail.com?subject=Hello" rel="nofollow">
+          <div class="contact-card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </div>
+          <div class="contact-card-body">
+            <div class="contact-card-label">Email</div>
+            <div class="contact-card-value">rjvnt@protonmail.com</div>
+            <div class="contact-card-note">PGP-signed · response within 48h</div>
+          </div>
+          <span class="contact-card-arrow">→</span>
+        </a>
+
+        <a class="contact-card" href="https://app.hackthebox.com/users/154504" target="_blank" rel="noopener">
+          <div class="contact-card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5"/><line x1="12" y1="22" x2="12" y2="15.5"/><polyline points="22 8.5 12 15.5 2 8.5"/></svg>
+          </div>
+          <div class="contact-card-body">
+            <div class="contact-card-label">Hack The Box</div>
+            <div class="contact-card-value">RJVNT · Master rank</div>
+            <div class="contact-card-note">130+ machines rooted</div>
+          </div>
+          <span class="contact-card-arrow">→</span>
+        </a>
+
+        <a class="contact-card" href="https://www.credential.net/8afa15a8-2cee-49c9-9022-614ebe117413" target="_blank" rel="noopener">
+          <div class="contact-card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </div>
+          <div class="contact-card-body">
+            <div class="contact-card-label">Certifications</div>
+            <div class="contact-card-value">OSCP+ · OSCP</div>
+            <div class="contact-card-note">verify on Accredible</div>
+          </div>
+          <span class="contact-card-arrow">→</span>
+        </a>
+      </div>
+
+      <div class="contact-terminal">
+        <div class="contact-terminal-head">
+          <span class="contact-terminal-dot"></span>
+          available for
+        </div>
+        <ul class="contact-avail">
+          <li><span class="contact-avail-check">✓</span> Web application pentests</li>
+          <li><span class="contact-avail-check">✓</span> Infrastructure &amp; network assessments</li>
+          <li><span class="contact-avail-check">✓</span> Active Directory attack simulations</li>
+          <li><span class="contact-avail-check">✓</span> Software testing &amp; QA automation</li>
+          <li><span class="contact-avail-check">✓</span> Written reports &amp; remediation guidance</li>
+        </ul>
+        <div class="contact-note">
+          All engagements require written scope and authorisation before any testing begins.
         </div>
       </div>
 

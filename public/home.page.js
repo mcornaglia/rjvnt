@@ -514,6 +514,57 @@ document.querySelectorAll('.ai-tab').forEach(btn => {
 /* ── (old terminal code removed) ── */
 
 
+  // ── Stats banner carousel ──
+  (function(){
+    const STATS = [
+      { text: 'Did you know that <strong>60%</strong> of small-medium businesses close within 6 months after a cyberattack?', src: 'widely cited industry figure' },
+      { text: 'Did you know the average data breach now costs <strong>$4.88 million</strong>?', src: 'IBM Cost of a Data Breach, 2024' },
+      { text: 'Did you know the average breach goes <strong>undetected for 194 days</strong>?', src: 'IBM Cost of a Data Breach, 2023' },
+      { text: 'Did you know <strong>phishing</strong> is the #1 initial attack vector in breaches?', src: 'Verizon DBIR, 2024' },
+      { text: 'Did you know a ransomware attack occurs every <strong>11 seconds</strong> globally?', src: 'Cybersecurity Ventures, 2021' },
+    ];
+    const textEl = document.querySelector('.stats-banner-text');
+    const srcEl  = document.getElementById('statsBannerSrc');
+    const dotsEl = document.getElementById('statsBannerDots');
+    if (!textEl || !srcEl || !dotsEl) return;
+
+    // build dots
+    STATS.forEach((_, i) => {
+      const dot = document.createElement('i');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => show(i));
+      dotsEl.appendChild(dot);
+    });
+
+    let cur = 0, timer;
+
+    function show(idx, animate = true) {
+      cur = idx;
+      const dots = dotsEl.querySelectorAll('i');
+      dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+      if (animate) {
+        textEl.classList.add('fade');
+        srcEl.classList.add('fade');
+        setTimeout(() => {
+          textEl.innerHTML = STATS[idx].text;
+          srcEl.textContent = STATS[idx].src;
+          textEl.classList.remove('fade');
+          srcEl.classList.remove('fade');
+        }, 300);
+      } else {
+        textEl.innerHTML = STATS[idx].text;
+        srcEl.textContent = STATS[idx].src;
+      }
+    }
+
+    function next() { show((cur + 1) % STATS.length); }
+
+    show(0, false);
+    timer = setInterval(next, 5000);
+    document.getElementById('statsBanner').addEventListener('mouseenter', () => clearInterval(timer));
+    document.getElementById('statsBanner').addEventListener('mouseleave', () => { timer = setInterval(next, 5000); });
+  })();
+
   document.getElementById('eraBtnPre').addEventListener('click', () => switchEra('pre'));
   document.getElementById('eraBtnPost').addEventListener('click', () => switchEra('post'));
   document.getElementById('eraSwitch').addEventListener('click', () => {

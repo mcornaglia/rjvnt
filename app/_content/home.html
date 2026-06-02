@@ -290,17 +290,29 @@
     font-size: 12.5px;
     color: var(--ink-2);
     line-height: 1.5;
-    flex-wrap: wrap;
+    min-height: 46px;
   }
-  .stats-banner strong{ color: var(--amber); font-weight: 600; }
+  .stats-banner-text{ flex: 1; transition: opacity .3s ease; }
+  .stats-banner-text strong{ color: var(--amber); font-weight: 600; }
+  .stats-banner-text.fade{ opacity: 0; }
   .stats-banner-icon{ color: var(--amber); font-size: 14px; flex-shrink: 0; }
+  .stats-banner-right{
+    display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0;
+  }
   .stats-banner-src{
-    margin-left: auto;
     font-size: 10px;
     color: var(--ink-3);
     white-space: nowrap;
     letter-spacing: 0.04em;
+    transition: opacity .3s ease;
   }
+  .stats-banner-src.fade{ opacity: 0; }
+  .stats-banner-dots{ display: flex; gap: 5px; }
+  .stats-banner-dots i{
+    display: block; width: 5px; height: 5px; border-radius: 50%;
+    background: oklch(0.45 0.10 70); cursor: pointer; transition: background .2s;
+  }
+  .stats-banner-dots i.active{ background: var(--amber); }
 
   /* ------- stats grid ------- */
   .stats{
@@ -2900,11 +2912,14 @@
       <p class="desc">A few numbers from public reporting that frame why offensive security work matters before the auditors show up.</p>
     </div>
 
-    <!-- INFO BANNER -->
-    <div class="stats-banner">
+    <!-- INFO BANNER CAROUSEL -->
+    <div class="stats-banner" id="statsBanner">
       <span class="stats-banner-icon">⚠</span>
-      <span>Did you know that <strong>60%</strong> of small-medium businesses close within 6 months after a cyberattack?</span>
-      <span class="stats-banner-src">widely cited industry figure</span>
+      <span class="stats-banner-text"></span>
+      <span class="stats-banner-right">
+        <span class="stats-banner-src" id="statsBannerSrc"></span>
+        <span class="stats-banner-dots" id="statsBannerDots"></span>
+      </span>
     </div>
 
     <!-- ERA TOGGLE -->

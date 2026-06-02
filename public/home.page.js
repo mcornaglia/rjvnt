@@ -235,7 +235,7 @@
   // Email address is assembled at runtime (base64) so the plaintext never
   // appears in the served HTML/JS — deters scraper/spam harvesting while
   // keeping the address fully usable for real visitors.
-  function _email(){ return atob('cmp2bnRAcHJvdG9ubWFpbC5jb20='); }
+  function _email(){ return atob('Y29ybmFnbGlhbWF0dGlhQHByb3Rvbi5tZQ=='); }
   (function(){
     const link = document.getElementById('emailLink');
     if (link) link.href = 'mailto:' + _email() + '?subject=' + encodeURIComponent('Free Assessment Request');

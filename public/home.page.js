@@ -492,6 +492,7 @@
     btns.forEach(b => b.classList.toggle('active', b.dataset.era === era));
     if (switchTrack) switchTrack.classList.toggle('on', era === 'post');
     applyEra(era);
+    if (statsBanner && statsBanner.setEra) statsBanner.setEra(era);
   }
 
 
@@ -515,54 +516,75 @@ document.querySelectorAll('.ai-tab').forEach(btn => {
 
 
   // ── Stats banner carousel ──
-  (function(){
-    const STATS = [
-      { text: 'Did you know that <strong>60%</strong> of small-medium businesses close within 6 months after a cyberattack?', src: 'widely cited industry figure' },
-      { text: 'Did you know the average data breach now costs <strong>$4.88 million</strong>?', src: 'IBM Cost of a Data Breach, 2024' },
-      { text: 'Did you know the average breach goes <strong>undetected for 194 days</strong>?', src: 'IBM Cost of a Data Breach, 2023' },
-      { text: 'Did you know <strong>phishing</strong> is the #1 initial attack vector in breaches?', src: 'Verizon DBIR, 2024' },
-      { text: 'Did you know a ransomware attack occurs every <strong>11 seconds</strong> globally?', src: 'Cybersecurity Ventures, 2021' },
-    ];
-    const textEl = document.querySelector('.stats-banner-text');
-    const srcEl  = document.getElementById('statsBannerSrc');
-    const dotsEl = document.getElementById('statsBannerDots');
-    if (!textEl || !srcEl || !dotsEl) return;
+  const statsBanner = (function(){
+    const SETS = {
+      pre: [
+        { text: 'Did you know that <strong>60%</strong> of small-medium businesses close within 6 months after a cyberattack?', src: 'widely cited industry figure' },
+        { text: 'Did you know the average data breach now costs <strong>$4.88 million</strong>?', src: 'IBM Cost of a Data Breach, 2024' },
+        { text: 'Did you know the average breach goes <strong>undetected for 194 days</strong>?', src: 'IBM Cost of a Data Breach, 2023' },
+        { text: 'Did you know <strong>phishing</strong> is the #1 initial attack vector in breaches?', src: 'Verizon DBIR, 2024' },
+        { text: 'Did you know a ransomware attack occurs every <strong>11 seconds</strong> globally?', src: 'Cybersecurity Ventures, 2021' },
+      ],
+      post: [
+        { text: 'Did you know AI-generated phishing emails have a <strong>202% higher click rate</strong> than human-written ones?', src: 'SlashNext H2 2024' },
+        { text: 'Did you know AI tools can now discover and exploit vulnerabilities in <strong>hours instead of months</strong>?', src: 'DARPA AI Cyber Challenge, 2024' },
+        { text: 'Did you know deepfake audio was used to <strong>steal $25 million</strong> in a single vishing attack?', src: 'Hong Kong Police, 2024' },
+        { text: 'Did you know AI-powered malware can <strong>rewrite its own signature</strong> on every execution cycle?', src: 'CrowdStrike Global Threat Report, 2024' },
+        { text: 'Did you know AI agents can now run <strong>full attack chains autonomously</strong> — recon to exfiltration?', src: 'MITRE ATLAS, 2024' },
+      ],
+    };
+    const bannerEl = document.getElementById('statsBanner');
+    const textEl   = document.querySelector('.stats-banner-text');
+    const srcEl    = document.getElementById('statsBannerSrc');
+    const dotsEl   = document.getElementById('statsBannerDots');
+    if (!textEl || !srcEl || !dotsEl || !bannerEl) return {};
 
-    // build dots
-    STATS.forEach((_, i) => {
-      const dot = document.createElement('i');
-      if (i === 0) dot.classList.add('active');
-      dot.addEventListener('click', () => show(i));
-      dotsEl.appendChild(dot);
-    });
+    let cur = 0, timer, activeSet = SETS.pre;
 
-    let cur = 0, timer;
-
-    function show(idx, animate = true) {
-      cur = idx;
-      const dots = dotsEl.querySelectorAll('i');
-      dots.forEach((d, i) => d.classList.toggle('active', i === idx));
-      if (animate) {
-        textEl.classList.add('fade');
-        srcEl.classList.add('fade');
-        setTimeout(() => {
-          textEl.innerHTML = STATS[idx].text;
-          srcEl.textContent = STATS[idx].src;
-          textEl.classList.remove('fade');
-          srcEl.classList.remove('fade');
-        }, 300);
-      } else {
-        textEl.innerHTML = STATS[idx].text;
-        srcEl.textContent = STATS[idx].src;
+    function buildDots(count) {
+      dotsEl.innerHTML = '';
+      for (let i = 0; i < count; i++) {
+        const dot = document.createElement('i');
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => show(i));
+        dotsEl.appendChild(dot);
       }
     }
 
-    function next() { show((cur + 1) % STATS.length); }
+    function show(idx, animate = true) {
+      cur = idx;
+      dotsEl.querySelectorAll('i').forEach((d, i) => d.classList.toggle('active', i === idx));
+      if (animate) {
+        textEl.classList.add('fade'); srcEl.classList.add('fade');
+        setTimeout(() => {
+          textEl.innerHTML = activeSet[idx].text;
+          srcEl.textContent = activeSet[idx].src;
+          textEl.classList.remove('fade'); srcEl.classList.remove('fade');
+        }, 300);
+      } else {
+        textEl.innerHTML = activeSet[idx].text;
+        srcEl.textContent = activeSet[idx].src;
+      }
+    }
 
+    function next() { show((cur + 1) % activeSet.length); }
+
+    function setEra(era) {
+      activeSet = SETS[era] || SETS.pre;
+      bannerEl.classList.toggle('era-post', era === 'post');
+      clearInterval(timer);
+      buildDots(activeSet.length);
+      show(0, true);
+      timer = setInterval(next, 5000);
+    }
+
+    buildDots(activeSet.length);
     show(0, false);
     timer = setInterval(next, 5000);
-    document.getElementById('statsBanner').addEventListener('mouseenter', () => clearInterval(timer));
-    document.getElementById('statsBanner').addEventListener('mouseleave', () => { timer = setInterval(next, 5000); });
+    bannerEl.addEventListener('mouseenter', () => clearInterval(timer));
+    bannerEl.addEventListener('mouseleave', () => { timer = setInterval(next, 5000); });
+
+    return { setEra };
   })();
 
   document.getElementById('eraBtnPre').addEventListener('click', () => switchEra('pre'));

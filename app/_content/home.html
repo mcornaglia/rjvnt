@@ -282,20 +282,28 @@
     gap: 10px;
     margin-bottom: 28px;
     padding: 13px 18px;
-    border: 1px solid oklch(0.45 0.10 70);
-    border-left: 3px solid var(--amber);
+    border: 1px solid oklch(0.45 0.12 230);
+    border-left: 3px solid var(--info);
     border-radius: 4px;
-    background: rgba(220,170,80,0.05);
+    background: rgba(80,160,220,0.05);
     font-family: "JetBrains Mono", monospace;
     font-size: 12.5px;
     color: var(--ink-2);
     line-height: 1.5;
     min-height: 46px;
+    transition: border-color .4s ease, background .4s ease, border-left-color .4s ease;
+  }
+  .stats-banner.era-post{
+    border-color: oklch(0.45 0.18 300);
+    border-left-color: oklch(0.74 0.24 300);
+    background: rgba(168,85,247,0.06);
   }
   .stats-banner-text{ flex: 1; transition: opacity .3s ease; }
-  .stats-banner-text strong{ color: var(--amber); font-weight: 600; }
+  .stats-banner-text strong{ color: var(--info); font-weight: 600; transition: color .4s ease; }
+  .stats-banner.era-post .stats-banner-text strong{ color: oklch(0.74 0.24 300); }
   .stats-banner-text.fade{ opacity: 0; }
-  .stats-banner-icon{ color: var(--amber); font-size: 14px; flex-shrink: 0; }
+  .stats-banner-icon{ color: var(--info); font-size: 14px; flex-shrink: 0; transition: color .4s ease; }
+  .stats-banner.era-post .stats-banner-icon{ color: oklch(0.74 0.24 300); }
   .stats-banner-right{
     display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0;
   }
@@ -310,9 +318,11 @@
   .stats-banner-dots{ display: flex; gap: 5px; }
   .stats-banner-dots i{
     display: block; width: 5px; height: 5px; border-radius: 50%;
-    background: oklch(0.45 0.10 70); cursor: pointer; transition: background .2s;
+    background: oklch(0.35 0.10 230); cursor: pointer; transition: background .2s;
   }
-  .stats-banner-dots i.active{ background: var(--amber); }
+  .stats-banner-dots i.active{ background: var(--info); }
+  .stats-banner.era-post .stats-banner-dots i{ background: oklch(0.35 0.14 300); }
+  .stats-banner.era-post .stats-banner-dots i.active{ background: oklch(0.74 0.24 300); }
 
   /* ------- stats grid ------- */
   .stats{
@@ -2914,7 +2924,7 @@
 
     <!-- INFO BANNER CAROUSEL -->
     <div class="stats-banner" id="statsBanner">
-      <span class="stats-banner-icon">⚠</span>
+      <span class="stats-banner-icon">ℹ</span>
       <span class="stats-banner-text"></span>
       <span class="stats-banner-right">
         <span class="stats-banner-src" id="statsBannerSrc"></span>

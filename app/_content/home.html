@@ -1064,6 +1064,38 @@
   .tl-cert:hover{ border-color: var(--term-dim); color: var(--term); }
   .tl-cert img{ width: 24px; height: auto; }
 
+  /* capability matrix inside whoami — compact 2-col layout */
+  .whoami-bio .skill{
+    padding: 10px 14px;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  .whoami-bio .skill-label{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+    min-width: 0;
+  }
+  .whoami-bio .skill .cat{
+    width: auto;
+    font-size: 10.5px;
+    color: var(--ink-3);
+    white-space: nowrap;
+  }
+  .whoami-bio .skill-techs{
+    font-size: 10px;
+    color: var(--ink-2);
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .whoami-bio .skill-bar-wrap{ gap: 6px; flex-shrink: 0; }
+  .whoami-bio .skill-meter i{ width: 6px; height: 11px; }
+  .whoami-bio .skill-score{ font-size: 10px; }
+
   @media(max-width:980px){
     .whoami-grid{ grid-template-columns: 1fr; gap: 48px; }
   }
@@ -2661,51 +2693,63 @@
         </p>
         <div class="skills">
           <div class="skill">
-            <div class="cat">Web Exploitation</div>
-            <div class="skill-techs">SQLi · SSRF · LFI/RFI · XSS · CSRF · File Upload Attacks · IDOR · XXE</div>
+            <div class="skill-label">
+              <div class="cat">Web Exploitation</div>
+              <div class="skill-techs">SQLi · SSRF · LFI/RFI · XSS · CSRF · IDOR · XXE</div>
+            </div>
             <div class="skill-bar-wrap">
-              <span class="skill-meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span>
-              <span class="skill-score">8/10</span>
+              <span class="skill-meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
+              <span class="skill-score">4/5</span>
             </div>
           </div>
           <div class="skill">
-            <div class="cat">Linux PrivEsc</div>
-            <div class="skill-techs">SUID/SGID abuse · GTFOBins · Cron hijack · PATH manipulation · Kernel exploits · Container escapes</div>
+            <div class="skill-label">
+              <div class="cat">Linux PrivEsc</div>
+              <div class="skill-techs">SUID/SGID · GTFOBins · Cron hijack · PATH · Kernel exploits</div>
+            </div>
             <div class="skill-bar-wrap">
-              <span class="skill-meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span>
-              <span class="skill-score">8/10</span>
+              <span class="skill-meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
+              <span class="skill-score">4/5</span>
             </div>
           </div>
           <div class="skill">
-            <div class="cat">Windows PrivEsc</div>
-            <div class="skill-techs">Token impersonation · SeImpersonatePrivilege · AlwaysInstallElevated · Unquoted service paths · DLL hijacking</div>
+            <div class="skill-label">
+              <div class="cat">Windows PrivEsc</div>
+              <div class="skill-techs">Token impersonation · AlwaysInstallElevated · DLL hijacking</div>
+            </div>
             <div class="skill-bar-wrap">
-              <span class="skill-meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
-              <span class="skill-score">9/10</span>
+              <span class="skill-meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>
+              <span class="skill-score">5/5</span>
             </div>
           </div>
           <div class="skill">
-            <div class="cat">AD Enumeration</div>
-            <div class="skill-techs">BloodHound · Kerberoasting · AS-REP roasting · ACL abuse · DCSync · NTLM relay · Constrained delegation</div>
+            <div class="skill-label">
+              <div class="cat">AD Enumeration</div>
+              <div class="skill-techs">BloodHound · Kerberoasting · DCSync · NTLM relay · ACL abuse</div>
+            </div>
             <div class="skill-bar-wrap">
-              <span class="skill-meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
-              <span class="skill-score">9/10</span>
+              <span class="skill-meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>
+              <span class="skill-score">5/5</span>
             </div>
           </div>
           <div class="skill">
-            <div class="cat">Pivoting</div>
-            <div class="skill-techs">chisel · ligolo-ng · SSH dynamic forwarding · SOCKS5/proxychains · Responder · double pivoting</div>
+            <div class="skill-label">
+              <div class="cat">Pivoting</div>
+              <div class="skill-techs">chisel · ligolo-ng · SOCKS5/proxychains · double pivot</div>
+            </div>
             <div class="skill-bar-wrap">
-              <span class="skill-meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
-              <span class="skill-score">9/10</span>
+              <span class="skill-meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>
+              <span class="skill-score">5/5</span>
             </div>
           </div>
           <div class="skill">
-            <div class="cat">Tools</div>
-            <div class="skill-techs">ffuf · nxc · Burp Suite · Hashcat · Impacket · Hydra · Nmap · John · Mimikatz · Metasploit · msfvenom</div>
+            <div class="skill-label">
+              <div class="cat">Tools</div>
+              <div class="skill-techs">ffuf · nxc · Burp · Hashcat · Impacket · Nmap · Mimikatz</div>
+            </div>
             <div class="skill-bar-wrap">
-              <span class="skill-meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
-              <span class="skill-score">9/10</span>
+              <span class="skill-meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>
+              <span class="skill-score">5/5</span>
             </div>
           </div>
         </div>

@@ -981,10 +981,38 @@
   /* ------- whoami ------- */
   .whoami-grid{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.1fr 0.9fr;
     gap: 64px;
-    align-items: start;
+    align-items: stretch;
   }
+  /* CTF block inside whoami */
+  .whoami-ctf{
+    margin-top: 24px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--surface);
+  }
+  .whoami-ctf-head{
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--line);
+    background: var(--surface-2);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-3);
+  }
+  .whoami-ctf-head svg{ flex-shrink: 0; color: var(--term); }
+  .whoami-ctf .counter{
+    padding: 10px 14px;
+    border-top: 1px solid var(--line);
+  }
+  .whoami-ctf .counter:first-of-type{ border-top: none; }
+  .whoami-ctf .counter-name{ font-size: 13px; }
+  .whoami-ctf .counter-sub{ font-size: 10px; }
+  .whoami-ctf .counter-num{ font-size: 22px; }
   /* timeline */
   .whoami-timeline{
     display: flex;
@@ -993,6 +1021,7 @@
     border-left: 1px solid var(--line);
     padding-left: 28px;
     position: relative;
+    height: 100%;
   }
   .tl-item{
     position: relative;
@@ -2683,10 +2712,10 @@
       <div class="whoami-bio">
         <div class="eyebrow" style="margin-bottom:20px;">Mattia Cornaglia · RJVNT</div>
         <p style="color:var(--ink-2); font-size:16px; line-height:1.7; margin:0 0 20px;">
-          Growing up, videogames were my first obsession — not just playing them, but refusing to stop until I'd cleared every level, found every exploit, beaten every boss. That stubbornness — the compulsion to keep going until something breaks or gives way — never left me. It just found better targets.
+          I've grown up in the 90s, playing videogames and discovering my passion towards technology. Videogames were at first only a source of fun, but with time they forged my inexhaustible mindset to always find a way through obstacles. That started with them, but significantly conditioned my whole experience with technology and software, leading me to become a software tester and then a penetration tester.
         </p>
         <p style="color:var(--ink-2); font-size:16px; line-height:1.7; margin:0 0 20px;">
-          I started my career in software quality, spending two years testing applications and two more building automation frameworks. In 2022 I made the full pivot into offensive security — the natural endpoint of a career spent breaking things constructively.
+          I started my career in software quality, spending two years testing applications and two more building automation frameworks. In 2022 I made the full pivot into offensive security, the natural endpoint of a career spent breaking things constructively.
         </p>
         <p style="color:var(--ink-2); font-size:16px; line-height:1.7; margin:0 0 28px;">
           Today I operate as a freelance software tester and penetration tester. I hold the <strong style="color:var(--ink);">OSCP+</strong> certification and have rooted 130+ machines across HackTheBox, Proving Grounds, and HackSmarter — reaching <strong style="color:var(--ink);">Master rank</strong> on HTB.
@@ -2752,6 +2781,35 @@
               <span class="skill-score">5/5</span>
             </div>
           </div>
+        </div>
+
+        <!-- CTF counters -->
+        <div class="whoami-ctf">
+          <div class="whoami-ctf-head">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+            CTF — machines rooted
+          </div>
+          <a class="counter" href="/machines#pg">
+            <div class="counter-meta">
+              <span class="counter-name">Proving Grounds</span>
+              <span class="counter-sub">offsec · PG Practice + Play</span>
+            </div>
+            <div class="counter-num">58<span class="counter-arrow">→</span></div>
+          </a>
+          <a class="counter" href="/machines#htb">
+            <div class="counter-meta">
+              <span class="counter-name">Hack The Box</span>
+              <span class="counter-sub">retired + active boxes</span>
+            </div>
+            <div class="counter-num">56<span class="counter-arrow">→</span></div>
+          </a>
+          <a class="counter" href="/machines#hs">
+            <div class="counter-meta">
+              <span class="counter-name">HackSmarter</span>
+              <span class="counter-sub">PG-style exam prep labs</span>
+            </div>
+            <div class="counter-num">3<span class="counter-arrow">→</span></div>
+          </a>
         </div>
       </div>
 

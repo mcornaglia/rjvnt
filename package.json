@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:cloudflare": "npx opennextjs-cloudflare build",
-    "deploy": "npx opennextjs-cloudflare build && npx wrangler@3 pages deploy",
+    "build:cloudflare": "node scripts/embed-content.js && npx opennextjs-cloudflare build",
+    "deploy": "node scripts/embed-content.js && npx opennextjs-cloudflare build && npx wrangler@3 deploy --config wrangler.jsonc",
     "start": "next start",
     "lint": "next lint"
   },

@@ -1094,6 +1094,14 @@
   }
   .tl-cert:hover{ border-color: var(--term-dim); color: var(--term); }
   .tl-cert img{ width: 24px; height: auto; }
+  .inline-link{
+    color: var(--term);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--term-dim);
+    transition: text-decoration-color .15s;
+  }
+  .inline-link:hover{ text-decoration-color: var(--term); }
 
   /* capability matrix inside whoami — compact 2-col layout */
   .whoami-bio .skill{
@@ -2667,7 +2675,7 @@
       <div class="hero-meta">
         <div>Training hours<span>1000+</span></div>
         <div>Machines Rooted<span>130+</span></div>
-        <div>HTB Rank<span><a href="https://app.hackthebox.com/users/154504" style="color:var(--term);text-decoration:underline;text-underline-offset:3px;">Master</a></span></div>
+        <div>HTB Rank<span><a class="inline-link" href="https://app.hackthebox.com/users/154504" target="_blank" rel="noopener">Master</a></span></div>
         <div>Certifications<span>OSCP+</span></div>
       </div>
     </div>
@@ -2835,7 +2843,8 @@
           <div class="tl-year">2022 – now</div>
           <div class="tl-content">
             <div class="tl-role">Penetration Tester <span class="tl-badge">current</span></div>
-            <div class="tl-desc">Freelance offensive security. Web app and infrastructure pentests, AD attacks, reporting. Earned OSCP and OSCP+ along the way.</div>
+            <div class="tl-desc">Freelance offensive security. I'm specialized in Vulnerability Assessment of Web-related surfaces as well as other services such as FTP, SMB, WinRM, LDAP etc. I know how to successfully infiltrate inside networks and pivot my way towards the full domain compromise. 
+              I've gained this sort of knowledge by practicing on sandbox environments within <a class="inline-link" href="https://www.hackthebox.com/" target="_blank" rel="noopener">HackTheBox</a>, <a class="inline-link" href="https://www.offensive-security.com/" target="_blank" rel="noopener">Proving Grounds (Offensive Security)</a> and <a class="inline-link" href="https://www.hacksmarter.org/" target="_blank" rel="noopener">HackSmarter</a>. Earned OSCP and OSCP+ along the way.</div>
             <div class="tl-certs">
               <a class="tl-cert" href="https://www.credential.net/8afa15a8-2cee-49c9-9022-614ebe117413" target="_blank" rel="noopener">
                 <img src="/oscp+.png" alt="OSCP+"/>

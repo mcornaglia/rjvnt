@@ -280,23 +280,22 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-left: 2px;
     margin-bottom: 28px;
     padding: 13px 18px;
     border: 1px solid oklch(0.45 0.12 230);
-    border-left: 3px solid var(--info);
     border-radius: 4px;
+    box-shadow: -3px 0 0 0 var(--info);
     background: rgba(80,160,220,0.05);
     font-family: "JetBrains Mono", monospace;
     font-size: 12.5px;
     color: var(--ink-2);
     line-height: 1.5;
     min-height: 46px;
-    transition: border-color .4s ease, background .4s ease, border-left-color .4s ease;
+    transition: border-color .4s ease, background .4s ease, box-shadow .4s ease;
   }
   .stats-banner.era-post{
     border-color: oklch(0.45 0.18 300);
-    border-left-color: oklch(0.74 0.24 300);
+    box-shadow: -3px 0 0 0 oklch(0.74 0.24 300);
     background: rgba(168,85,247,0.06);
   }
   .stats-banner-text{ flex: 1; min-width: 0; transition: opacity .3s ease; }

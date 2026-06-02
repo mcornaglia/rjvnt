@@ -38,10 +38,13 @@
     // terminal card
     { sel: 'section.hero .term-head span',      to: 'kr3w@rjvnt-owned:~' },
     { sel: 'section.hero .terminal',            html: `<div class="term-head"><div class="lights"><i></i><i></i><i></i></div><span>kr3w@rjvnt-owned:~</span></div><div class="term-body"><div><span class="p">$ </span>whoami</div><div class="out">&nbsp;</div><div style="color:oklch(0.72 0.24 25)">r00t</div><div class="out">&nbsp;</div><div><span class="p">$ </span>cat /etc/shadow | head -1</div><div style="color:oklch(0.72 0.24 25)">root:$6$kr3w$xX.compromised.xX:19800:0:99999:7:::</div><div class="out">&nbsp;</div><div><span class="p">$ </span>echo $STATUS</div><div style="color:oklch(0.72 0.24 25)">all your base are belong to us.</div></div>` },
-    // timeline roles
+    // timeline roles + descs
     { sel: '.tl-item:nth-child(1) .tl-role',   to: 'Enumerated' },
     { sel: '.tl-item:nth-child(2) .tl-role',   to: 'Exploited' },
     { sel: '.tl-item:nth-child(3) .tl-role',   to: 'Owned ✓' },
+    { sel: '.tl-item:nth-child(1) .tl-desc',   to: 'Surface mapping complete. 4 open ports. 2 unpatched services. Default credentials on the admin panel. We were in before the coffee got cold.' },
+    { sel: '.tl-item:nth-child(2) .tl-desc',   to: 'Selenium? cute. we automated the exfil. your test framework is now our data pipeline. CI/CD credentials leaked in commit 3f9a12b.' },
+    { sel: '.tl-item:nth-child(3) .tl-desc',   to: 'Domain admin. All hashes dumped. Golden ticket forged. Your OSCP cert is in our loot folder. Written scope, written authorisation — we didn\'t need either.' },
     // capability matrix — cats
     { sel: '.whoami-bio .skill:nth-child(1) .cat',        to: 'SQLi/XSS/RCE' },
     { sel: '.whoami-bio .skill:nth-child(2) .cat',        to: 'Root via GTFOBins' },

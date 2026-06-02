@@ -1214,9 +1214,9 @@
   /* ------- contact ------- */
   .contact-grid{
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 56px;
-    align-items: start;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    max-width: 640px;
   }
   .contact-channels{ display: flex; flex-direction: column; gap: 12px; }
   .contact-card{
@@ -3917,14 +3917,13 @@
 
       <div class="assess-cta">
         <div class="assess-cta-inner">
-          <h3>Get in touch</h3>
-          <p>Drop me an email with your domain and I'll get back to you within 48 hours to confirm scope before starting.</p>
+          <h3>Ready to start?</h3>
+          <p>Drop your domain and I'll get back to you within 48 hours to confirm scope before starting.</p>
           <div style="display:flex; flex-direction:column; gap:12px; margin-top:24px;">
             <a class="btn btn-primary" id="emailLink" href="mailto:rjvnt@protonmail.com?subject=Free%20Assessment%20Request" rel="nofollow" style="justify-content:center; text-decoration:none;">
               <span class="glyph">✉</span>Email me
             </a>
           </div>
-
         </div>
       </div>
 
@@ -3958,6 +3957,18 @@
           <span class="contact-card-arrow">→</span>
         </a>
 
+        <a class="contact-card" href="https://www.linkedin.com/in/mattia-cornaglia" target="_blank" rel="noopener">
+          <div class="contact-card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </div>
+          <div class="contact-card-body">
+            <div class="contact-card-label">LinkedIn</div>
+            <div class="contact-card-value">Mattia Cornaglia</div>
+            <div class="contact-card-note">connect for professional enquiries</div>
+          </div>
+          <span class="contact-card-arrow">→</span>
+        </a>
+
         <a class="contact-card" href="https://app.hackthebox.com/users/154504" target="_blank" rel="noopener">
           <div class="contact-card-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5"/><line x1="12" y1="22" x2="12" y2="15.5"/><polyline points="22 8.5 12 15.5 2 8.5"/></svg>
@@ -3969,35 +3980,6 @@
           </div>
           <span class="contact-card-arrow">→</span>
         </a>
-
-        <a class="contact-card" href="https://www.credential.net/8afa15a8-2cee-49c9-9022-614ebe117413" target="_blank" rel="noopener">
-          <div class="contact-card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
-          </div>
-          <div class="contact-card-body">
-            <div class="contact-card-label">Certifications</div>
-            <div class="contact-card-value">OSCP+ · OSCP</div>
-            <div class="contact-card-note">verify on Accredible</div>
-          </div>
-          <span class="contact-card-arrow">→</span>
-        </a>
-      </div>
-
-      <div class="contact-terminal">
-        <div class="contact-terminal-head">
-          <span class="contact-terminal-dot"></span>
-          available for
-        </div>
-        <ul class="contact-avail">
-          <li><span class="contact-avail-check">✓</span> Web application pentests</li>
-          <li><span class="contact-avail-check">✓</span> Infrastructure &amp; network assessments</li>
-          <li><span class="contact-avail-check">✓</span> Active Directory attack simulations</li>
-          <li><span class="contact-avail-check">✓</span> Software testing &amp; QA automation</li>
-          <li><span class="contact-avail-check">✓</span> Written reports &amp; remediation guidance</li>
-        </ul>
-        <div class="contact-note">
-          All engagements require written scope and authorisation before any testing begins.
-        </div>
       </div>
 
     </div>
@@ -4032,20 +4014,12 @@
         <h5>Contact</h5>
         <ul>
           <li><a id="footerEmail" href="mailto:rjvnt@protonmail.com" rel="nofollow">rjvnt@protonmail.com</a></li>
+          <li><a href="https://www.linkedin.com/in/mattia-cornaglia" target="_blank" rel="noopener">LinkedIn</a></li>
           <li><a href="https://app.hackthebox.com/users/154504" target="_blank" rel="noopener">Hack The Box</a></li>
-          <li><a href="https://www.credential.net/8afa15a8-2cee-49c9-9022-614ebe117413" target="_blank" rel="noopener">OSCP+ credential</a></li>
         </ul>
       </div>
 
-      <div>
-        <h5>Engagements</h5>
-        <ul>
-          <li>Web application pentests</li>
-          <li>Infrastructure assessments</li>
-          <li>AD attack simulations</li>
-          <li>SW testing &amp; QA automation</li>
-        </ul>
-      </div>
+      <div></div>
 
     </div>
 

@@ -291,7 +291,6 @@
     color: var(--ink-2);
     line-height: 1.5;
     min-height: 46px;
-    overflow: hidden;
     transition: border-color .4s ease, background .4s ease, border-left-color .4s ease;
   }
   .stats-banner.era-post{
@@ -314,6 +313,13 @@
     white-space: nowrap;
     letter-spacing: 0.04em;
     transition: opacity .3s ease;
+  }
+  @media(max-width:640px){
+    .stats-banner{ flex-wrap: wrap; gap: 8px; }
+    .stats-banner-text{ min-width: 100%; order: 2; }
+    .stats-banner-icon{ order: 1; }
+    .stats-banner-right{ order: 3; width: 100%; flex-direction: row; align-items: center; justify-content: space-between; }
+    .stats-banner-src{ white-space: normal; }
   }
   .stats-banner-src.fade{ opacity: 0; }
   .stats-banner-dots{ display: flex; gap: 5px; }

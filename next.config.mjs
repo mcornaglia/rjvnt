@@ -23,7 +23,7 @@ const csp = [
   "img-src 'self' data:",
   "font-src 'self'",
   "style-src 'self' 'unsafe-inline'",
-  `script-src 'self'${isDev ? " 'unsafe-inline' 'unsafe-eval'" : ""}`,
+  `script-src 'self' 'sha256-Q+8tPsjVtiDsjF/Cv8FMOpg2Yg91oKFKDAJat1PPb2g='${isDev ? " 'unsafe-inline' 'unsafe-eval'" : ""}`,
   "connect-src 'self'",
   "upgrade-insecure-requests",
 ].join("; ");

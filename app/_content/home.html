@@ -817,6 +817,9 @@
     display:block; width: 7px; height: 14px; background: var(--line-2); border-radius: 1px;
   }
   .skill-meter i.on{ background: var(--term); }
+  .skill-meter i.half{
+    background: linear-gradient(to right, var(--term) 50%, var(--line-2) 50%);
+  }
   .skill-score{
     font-family: "JetBrains Mono", monospace;
     font-size: 11px;
@@ -1017,6 +1020,7 @@
   .whoami-timeline{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 0;
     border-left: 1px solid var(--line);
     padding-left: 28px;
@@ -1025,9 +1029,7 @@
   }
   .tl-item{
     position: relative;
-    padding-bottom: 36px;
   }
-  .tl-item:last-child{ padding-bottom: 0; }
   .tl-item::before{
     content: '';
     position: absolute;
@@ -2747,8 +2749,8 @@
               <div class="skill-techs">Token impersonation · AlwaysInstallElevated · DLL hijacking</div>
             </div>
             <div class="skill-bar-wrap">
-              <span class="skill-meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>
-              <span class="skill-score">5/5</span>
+              <span class="skill-meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="half"></i></span>
+              <span class="skill-score">4.5/5</span>
             </div>
           </div>
           <div class="skill">
@@ -2757,8 +2759,8 @@
               <div class="skill-techs">BloodHound · Kerberoasting · DCSync · NTLM relay · ACL abuse</div>
             </div>
             <div class="skill-bar-wrap">
-              <span class="skill-meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>
-              <span class="skill-score">5/5</span>
+              <span class="skill-meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="half"></i></span>
+              <span class="skill-score">4.5/5</span>
             </div>
           </div>
           <div class="skill">
@@ -2767,8 +2769,8 @@
               <div class="skill-techs">chisel · ligolo-ng · SOCKS5/proxychains · double pivot</div>
             </div>
             <div class="skill-bar-wrap">
-              <span class="skill-meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>
-              <span class="skill-score">5/5</span>
+              <span class="skill-meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="half"></i></span>
+              <span class="skill-score">4.5/5</span>
             </div>
           </div>
           <div class="skill">
@@ -2777,8 +2779,8 @@
               <div class="skill-techs">ffuf · nxc · Burp · Hashcat · Impacket · Nmap · Mimikatz</div>
             </div>
             <div class="skill-bar-wrap">
-              <span class="skill-meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>
-              <span class="skill-score">5/5</span>
+              <span class="skill-meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="half"></i></span>
+              <span class="skill-score">4.5/5</span>
             </div>
           </div>
         </div>

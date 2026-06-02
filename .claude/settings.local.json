@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\Mattia\\\\Desktop\\\\EthHackerWebsite-deploy\\\\Boxes\" -Recurse)",
+      "Bash(Select-Object FullName, PSIsContainer)",
+      "Bash(Format-Table -AutoSize)",
+      "PowerShell(head -100)",
+      "Bash(Get-ChildItem \"C:\\\\Users\\\\Mattia\\\\Desktop\\\\EthHackerWebsite-next\\\\public\\\\Boxes\" -Recurse -Name)",
+      "Bash(Sort-Object)",
+      "Bash(Out-String -Width 300)"
+    ]
+  }
+}

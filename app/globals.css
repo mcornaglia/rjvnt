@@ -1,0 +1,7 @@
+/* Base reset — page-specific styles travel inside each route's injected <style>. */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #13181d;
+}

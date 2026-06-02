@@ -205,12 +205,14 @@
       void body.offsetWidth;
       body.classList.add('defaced');
       applyDeface();
+      if (heroPlayer.deface) heroPlayer.deface();
       defaceBtn.innerHTML = '<span class=”glyph”>⚠</span>Defaced';
       defaceBtn.style.opacity = '0.5';
       cleanBtn.style.display = '';
     } else {
       body.classList.remove('defaced');
       restoreSite();
+      if (heroPlayer.restore) heroPlayer.restore();
       defaceBtn.innerHTML = '<span class=”glyph”>⚠</span>Deface';
       defaceBtn.style.opacity = '';
       cleanBtn.style.display = 'none';
@@ -624,19 +626,72 @@ document.querySelectorAll('.ai-tab').forEach(btn => {
   })();
 
   // ── Hero terminal asciinema player ──
-  (function(){
+  const heroPlayer = (function(){
     const el = document.getElementById('heroTermPlayer');
-    if (!el || typeof AsciinemaPlayer === 'undefined') return;
-    AsciinemaPlayer.create('/whoami.cast', el, {
-      cols: 58,
-      rows: 18,
-      theme: 'monokai',
-      fit: 'width',
-      autoPlay: true,
-      loop: true,
-      controls: false,
+    if (!el || typeof AsciinemaPlayer === 'undefined') return {};
+
+    // Custom theme matching site palette
+    const SITE_THEME = {
+      background: '#10151a',
+      foreground: '#e8e3d8',
+      cursor:     '#76c682',
+      black:      '#13181d',
+      red:        '#c0594a',
+      green:      '#76c682',
+      yellow:     '#d4aa50',
+      blue:       '#5a9fd4',
+      magenta:    '#b57fc0',
+      cyan:       '#50b4c8',
+      white:      '#e8e3d8',
+      brightBlack:  '#353e48',
+      brightRed:    '#e07060',
+      brightGreen:  '#9adea4',
+      brightYellow: '#e8c870',
+      brightBlue:   '#78b8e8',
+      brightMagenta:'#d098d8',
+      brightCyan:   '#78ccd8',
+      brightWhite:  '#f0ece4',
+    };
+
+    const DEFACE_THEME = {
+      background: '#0c0508',
+      foreground: '#ffe4dd',
+      cursor:     '#e06050',
+      black:      '#0c0508',
+      red:        '#e06050',
+      green:      '#e06050',
+      yellow:     '#e07870',
+      blue:       '#c04040',
+      magenta:    '#e060a0',
+      cyan:       '#c05050',
+      white:      '#ffe4dd',
+      brightBlack:  '#55202e',
+      brightRed:    '#ff7060',
+      brightGreen:  '#ff7060',
+      brightYellow: '#ff9080',
+      brightBlue:   '#e05050',
+      brightMagenta:'#ff80c0',
+      brightCyan:   '#e07070',
+      brightWhite:  '#fff0ee',
+    };
+
+    const OPTS = {
+      cols: 58, rows: 18, fit: 'width',
+      autoPlay: true, loop: true, controls: false,
       terminalFontSize: 'small',
-    });
+    };
+
+    function mount(castFile, theme) {
+      el.innerHTML = '';
+      AsciinemaPlayer.create(castFile, el, { ...OPTS, theme });
+    }
+
+    mount('/whoami.cast', SITE_THEME);
+
+    return {
+      deface:  () => mount('/whoami-defaced.cast', DEFACE_THEME),
+      restore: () => mount('/whoami.cast', SITE_THEME),
+    };
   })();
 
   document.getElementById('eraBtnPre').addEventListener('click', () => switchEra('pre'));

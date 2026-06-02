@@ -42,6 +42,27 @@
     { sel: '.tl-item:nth-child(1) .tl-role',   to: 'Enumerated' },
     { sel: '.tl-item:nth-child(2) .tl-role',   to: 'Exploited' },
     { sel: '.tl-item:nth-child(3) .tl-role',   to: 'Owned ✓' },
+    // capability matrix — cats
+    { sel: '.whoami-bio .skill:nth-child(1) .cat',        to: 'SQLi/XSS/RCE' },
+    { sel: '.whoami-bio .skill:nth-child(2) .cat',        to: 'Root via GTFOBins' },
+    { sel: '.whoami-bio .skill:nth-child(3) .cat',        to: 'SeImpersonate' },
+    { sel: '.whoami-bio .skill:nth-child(4) .cat',        to: 'DCSync / DA' },
+    { sel: '.whoami-bio .skill:nth-child(5) .cat',        to: 'ligolo-ng tunnel' },
+    { sel: '.whoami-bio .skill:nth-child(6) .cat',        to: 'Mimikatz/Hashcat' },
+    // capability matrix — techs
+    { sel: '.whoami-bio .skill:nth-child(1) .skill-techs', to: 'already ran it on you. results: critical.' },
+    { sel: '.whoami-bio .skill:nth-child(2) .skill-techs', to: 'your cron jobs now run our payloads.' },
+    { sel: '.whoami-bio .skill:nth-child(3) .skill-techs', to: 'potato served. SYSTEM shell active.' },
+    { sel: '.whoami-bio .skill:nth-child(4) .skill-techs', to: 'domain admin. all hashes dumped.' },
+    { sel: '.whoami-bio .skill:nth-child(5) .skill-techs', to: 'tunnelled through your firewall. undetected.' },
+    { sel: '.whoami-bio .skill:nth-child(6) .skill-techs', to: 'cracked in 4 minutes. rockyou.txt.' },
+    // capability matrix — scores
+    { sel: '.whoami-bio .skill:nth-child(1) .skill-score', to: '∞/5' },
+    { sel: '.whoami-bio .skill:nth-child(2) .skill-score', to: '∞/5' },
+    { sel: '.whoami-bio .skill:nth-child(3) .skill-score', to: '∞/5' },
+    { sel: '.whoami-bio .skill:nth-child(4) .skill-score', to: '∞/5' },
+    { sel: '.whoami-bio .skill:nth-child(5) .skill-score', to: '∞/5' },
+    { sel: '.whoami-bio .skill:nth-child(6) .skill-score', to: '∞/5' },
   ];
 
   const AI_CARD_EDITS = [

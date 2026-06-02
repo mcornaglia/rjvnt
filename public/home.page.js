@@ -630,37 +630,23 @@ document.querySelectorAll('.ai-tab').forEach(btn => {
     const el = document.getElementById('heroTermPlayer');
     if (!el || typeof AsciinemaPlayer === 'undefined') return {};
 
-    // Custom themes — palette array format: [black,red,green,yellow,blue,magenta,cyan,white] x2 (normal+bright)
-    const SITE_THEME = {
-      background: '#10151a',
-      foreground: '#e8e3d8',
-      cursor:     '#76c682',
-      palette:    '#13181d:#c0594a:#76c682:#d4aa50:#5a9fd4:#b57fc0:#50b4c8:#e8e3d8:#353e48:#e07060:#9adea4:#e8c870:#78b8e8:#d098d8:#78ccd8:#f0ece4',
-    };
-
-    const DEFACE_THEME = {
-      background: '#0c0508',
-      foreground: '#ffe4dd',
-      cursor:     '#e06050',
-      palette:    '#0c0508:#e06050:#e06050:#e07870:#c04040:#e060a0:#c05050:#ffe4dd:#55202e:#ff7060:#ff7060:#ff9080:#e05050:#ff80c0:#e07070:#fff0ee',
-    };
-
     const OPTS = {
       cols: 58, rows: 18, fit: 'width',
       autoPlay: true, loop: true, controls: false,
       terminalFontSize: 'small',
+      theme: 'asciinema',
     };
 
-    function mount(castFile, theme) {
+    function mount(castFile) {
       el.innerHTML = '';
-      AsciinemaPlayer.create(castFile, el, { ...OPTS, theme });
+      AsciinemaPlayer.create(castFile, el, OPTS);
     }
 
-    mount('/whoami.cast', SITE_THEME);
+    mount('/whoami.cast');
 
     return {
-      deface:  () => mount('/whoami-defaced.cast', DEFACE_THEME),
-      restore: () => mount('/whoami.cast', SITE_THEME),
+      deface:  () => mount('/whoami-defaced.cast'),
+      restore: () => mount('/whoami.cast'),
     };
   })();
 

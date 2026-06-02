@@ -224,6 +224,21 @@
     overflow: hidden;
     box-shadow: 0 30px 60px -30px rgba(0,0,0,0.7);
   }
+  /* Asciinema player overrides — match site palette */
+  #heroTermPlayer .ap-terminal{ background: #10151a !important; }
+  #heroTermPlayer .ap-wrapper{ background: #10151a !important; }
+  #heroTermPlayer{ --term-color-foreground: #e8e3d8; --term-color-background: #10151a; }
+  #heroTermPlayer .ap-terminal .fg-0 { color: #353e48; }
+  #heroTermPlayer .ap-terminal .fg-1 { color: #c0594a; }
+  #heroTermPlayer .ap-terminal .fg-2 { color: #76c682; }
+  #heroTermPlayer .ap-terminal .fg-3 { color: #d4aa50; }
+  #heroTermPlayer .ap-terminal .fg-4 { color: #5a9fd4; }
+  #heroTermPlayer .ap-terminal .fg-5 { color: #b57fc0; }
+  #heroTermPlayer .ap-terminal .fg-6 { color: #50b4c8; }
+  #heroTermPlayer .ap-terminal .fg-7 { color: #e8e3d8; }
+  #heroTermPlayer .ap-terminal .fg-9 { color: #e8e3d8; } /* default fg */
+  #heroTermPlayer .ap-terminal .bg-0 { background: #13181d; }
+  #heroTermPlayer .ap-terminal .bg-9 { background: #10151a; } /* default bg */
   .term-head{
     display:flex; align-items: center; gap: 8px;
     padding: 10px 14px;
